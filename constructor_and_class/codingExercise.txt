@@ -1,0 +1,60 @@
+### Coding exercise (TypeScript - public/private/protected)
+
+Implement the following so it compiles and runs, while demonstrating what’s allowed and forbidden with access modifiers:
+
+- Create `class Account`:
+  - `public owner: string`
+  - `protected balance: number` (starts at 0)
+  - `private pin: string`
+  - `public describe(): string` returns `"Owner: <owner>"`
+  - `public checkPin(pin: string): boolean` returns whether it matches
+
+- Create `class SavingsAccount extends Account`:
+  - `public deposit(amount: number): void` adds to `balance`
+  - `public withdraw(amount: number, pin: string): boolean`
+    - Only withdraw if `pin` is correct and there’s enough `balance`
+  - `public summary(): string` returns `"Owner: <owner>, Balance: <balance>"`
+
+- Write a function `probe(account: Account)` that tries to access:
+  - `account.owner` (should compile)
+  - `account.balance` (should NOT compile)
+  - `account.pin` (should NOT compile)
+  - Use comments to show which lines should fail and why.
+
+- In a small demo:
+  - Create `const s = new SavingsAccount("Ava", "1234")`
+  - `deposit(200)`, attempt `withdraw(50, "0000")` then `withdraw(50, "1234")`
+  - Log `describe()` and `summary()` outputs.
+
+Starter skeleton to fill in:
+
+```ts
+class Account {
+  // TODO: public owner, protected balance=0, private pin
+  // TODO: constructor(owner: string, pin: string)
+  // TODO: describe(): string
+  // TODO: checkPin(pin: string): boolean
+}
+
+class SavingsAccount extends Account {
+  // TODO: deposit(amount: number): void
+  // TODO: withdraw(amount: number, pin: string): boolean
+  // TODO: summary(): string
+}
+
+function probe(account: Account) {
+  console.log(account.owner);          // OK
+  // console.log(account.balance);     // ERROR: why?
+  // console.log(account.pin);         // ERROR: why?
+}
+
+const s = new SavingsAccount("Ava", "1234");
+s.deposit(200);
+console.log(s.withdraw(50, "0000"));   // false
+console.log(s.withdraw(50, "1234"));   // true
+console.log(s.describe());             // "Owner: Ava"
+console.log(s.summary());              // includes balance
+probe(s);
+```
+
+Goal: Make valid accesses compile and invalid ones fail at compile-time due to `protected`/`private`, while the program runs and logs the expected outputs.

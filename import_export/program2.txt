@@ -1,0 +1,35 @@
+// // Here's a beginner-level coding question that requires you to write code:
+
+// **Question:**
+// Create two TypeScript files that demonstrate import/export functionality:
+
+// **Requirements:**
+// 1. **File 1 (`shapes.ts`):** Create and export two classes:
+//    - `Circle` class with properties: `radius` and methods: `getArea()` and `getCircumference()`
+//    - `Rectangle` class with properties: `width`, `height` and methods: `getArea()` and `getPerimeter()`
+
+// 2. **File 2 (`main.ts`):** Import both classes from `shapes.ts` and create instances to test them:
+//    - Create a Circle with radius 5
+//    - Create a Rectangle with width 4 and height 6
+//    - Call all the methods and log the results
+
+// **Bonus Challenge:** Add a default export for one of the classes and show how to import it differently.
+
+// **Expected Output:**
+// ```
+// Circle - Area: 78.54, Circumference: 31.42
+// Rectangle - Area: 24, Perimeter: 20
+// ```
+
+// **Formulas to use:**
+// - Circle Area: π × radius²
+// - Circle Circumference: 2 × π × radius  
+// - Rectangle Area: width × height
+// - Rectangle Perimeter: 2 × (width + height)
+
+// Go ahead and create these files! This will test your understanding of:
+// - Class creation and methods
+// - Export/import syntax
+// - Math calculations
+// - File organization
+

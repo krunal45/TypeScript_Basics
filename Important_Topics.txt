@@ -1,0 +1,210 @@
+TypeScript Learning Guide - Important Topics and Beginner Questions
+================================================================
+
+Based on analysis of: src/shared/tests-configs/phases/phases.ts
+
+TypeScript Concepts by Priority
+===============================
+
++----------------------------------------+----------+
+| Topic                                  | Priority |
++----------------------------------------+----------+
+| Object Literals & Type Inference       | High     |
+| Array Types & Object Arrays            | High     |
+| Type Assertions (`as keyof typeof`)    | High     |
+| Union Types & String Literals          | High     |
+| Logical OR (`||`) Fallback             | High     |
+| Record Utility Type                    | Medium   |
+| Default Parameters                     | Medium   |
+| Error Handling & Throwing Errors       | Medium   |
+| Template Literals & String Interpolation| Medium   |
+| Object.keys() & Array Methods          | Medium   |
+| Function Return Types (Implicit)       | Low      |
+| Environment Variables (`process.env`)  | Low      |
+| Export/Import Statements               | Low      |
++----------------------------------------+----------+
+
+Beginner Level Coding Questions
+===============================
+
+1. Object Literals & Type Inference (High Priority)
+---------------------------------------------------
+
+Question:
+const user = {
+  name: "John",
+  age: 25,
+  isActive: true
+};
+
+What type does TypeScript automatically infer for the `user` variable? 
+Write a function that takes this user object and returns a greeting string.
+
+Answer:
+// TypeScript infers: { name: string; age: number; isActive: boolean; }
+function greetUser(user: { name: string; age: number; isActive: boolean }) {
+  return `Hello ${user.name}, you are ${user.age} years old!`;
+}
+
+2. Array Types & Object Arrays (High Priority)
+----------------------------------------------
+
+Question:
+Create an array of book objects where each book has `title` (string), 
+`author` (string), and `pages` (number). Write a function that finds 
+books with more than 200 pages.
+
+Answer:
+const books = [
+  { title: "The Great Gatsby", author: "F. Scott Fitzgerald", pages: 180 },
+  { title: "War and Peace", author: "Leo Tolstoy", pages: 1225 },
+  { title: "1984", author: "George Orwell", pages: 328 }
+];
+
+function findLongBooks(books: Array<{ title: string; author: string; pages: number }>) {
+  return books.filter(book => book.pages > 200);
+}
+
+3. Type Assertions (`as keyof typeof`) (High Priority)
+------------------------------------------------------
+
+Question:
+You have a settings object. Write a function that safely gets a setting 
+value using type assertion.
+
+const settings = {
+  theme: "dark",
+  language: "en",
+  notifications: true
+};
+
+Answer:
+function getSetting(settingName: string) {
+  return settings[settingName as keyof typeof settings];
+}
+
+4. Union Types & String Literals (High Priority)
+------------------------------------------------
+
+Question:
+Create a function that accepts only specific status values: "pending", 
+"approved", or "rejected". Use union types.
+
+Answer:
+type Status = "pending" | "approved" | "rejected";
+
+function updateStatus(status: Status) {
+  console.log(`Status updated to: ${status}`);
+}
+
+5. Record Utility Type (Medium Priority)
+----------------------------------------
+
+Question:
+Create a Record type that maps country codes to country names. Write a 
+function to get country name by code.
+
+Answer:
+const countries: Record<string, string> = {
+  "US": "United States",
+  "UK": "United Kingdom",
+  "CA": "Canada"
+};
+
+function getCountryName(code: string): string | undefined {
+  return countries[code];
+}
+
+6. Default Parameters (Medium Priority)
+---------------------------------------
+
+Question:
+Write a function that creates a user profile with default values for 
+optional parameters.
+
+Answer:
+function createProfile(name: string, age: number = 18, city: string = "Unknown") {
+  return { name, age, city };
+}
+
+7. Logical OR (`||`) Fallback (High Priority)
+---------------------------------------------
+
+Question:
+Write a function that gets a configuration value with fallback to default.
+
+const config = {
+  apiUrl: "https://api.example.com",
+  timeout: 5000
+};
+
+Answer:
+function getConfigValue(key: string, defaultValue: any) {
+  return config[key as keyof typeof config] || defaultValue;
+}
+
+8. Error Handling & Throwing Errors (Medium Priority)
+----------------------------------------------------
+
+Question:
+Write a function that validates an email and throws an error if invalid.
+
+Answer:
+function validateEmail(email: string): string {
+  if (!email.includes("@")) {
+    throw new Error(`Invalid email format: ${email}`);
+  }
+  return email;
+}
+
+9. Template Literals & String Interpolation (Medium Priority)
+------------------------------------------------------------
+
+Question:
+Create a function that generates a personalized message using template literals.
+
+Answer:
+function createMessage(name: string, task: string, deadline: string) {
+  return `Hello ${name}, your task "${task}" is due on ${deadline}.`;
+}
+
+10. Object.keys() & Array Methods (Medium Priority)
+--------------------------------------------------
+
+Question:
+Write a function that gets all property names from an object and filters them.
+
+const data = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 30,
+  email: "john@example.com"
+};
+
+Answer:
+function getStringProperties(obj: Record<string, any>) {
+  return Object.keys(obj).filter(key => typeof obj[key] === "string");
+}
+
+Learning Tips
+=============
+
+1. Start with High Priority topics - they are fundamental concepts
+2. Practice each concept with simple examples before moving to complex ones
+3. Focus on understanding type safety and how TypeScript prevents runtime errors
+4. Use the TypeScript playground (typescriptlang.org/play) to experiment
+5. Pay special attention to type assertions and when to use them safely
+
+File Analysis Summary
+====================
+
+The analyzed file demonstrates:
+- Complex object structures with nested arrays
+- Type-safe object property access using type assertions
+- Environment variable handling with fallbacks
+- Error handling with descriptive messages
+- Template literal usage for dynamic error messages
+- Export patterns for module systems
+
+These concepts form the foundation of modern TypeScript development and are 
+essential for building robust, type-safe applications.
