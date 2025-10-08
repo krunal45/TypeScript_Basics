@@ -1,16 +1,24 @@
 {
-    "compilerOptions": {
-        "module": "commonjs",
-        "moduleResolution": "node",
-        "target": "ES2022",
-        "jsx": "react-jsx",
-        "moduleDetection": "force",
-        "strictNullChecks": true,
-        "strictFunctionTypes": true,
-        "sourceMap": true
-    },
-    "exclude": [
-        "node_modules",
-        "**/node_modules/*"
-    ]
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "target": "ES6",
+    "lib": ["ES2022", "DOM"],
+    "jsx": "react-jsx",
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
+    // "resolveJsonModule": true
+  },
+
+  "ts-node": {
+    "esm": true,
+    "transpileOnly": true
+  },
+
+  "exclude": ["node_modules", "**/node_modules/*"]
 }

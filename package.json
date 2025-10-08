@@ -2,28 +2,35 @@
   "name": "typescript_basics",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://github.com/krunal45/TypeScript_Basics#readme",
-  "bugs": {
-    "url": "https://github.com/krunal45/TypeScript_Basics/issues"
+  "main": "",
+  "scripts": {
+    "ts": "tsx"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/krunal45/TypeScript_Basics.git"
   },
+  "keywords": [],
+  "author": "",
   "license": "ISC",
-  "author": "krunal",
-  "type": "commonjs",
-  "main": "",
-  "scripts": {
-    "test": "npx ts-node",
-    "start": "ts-node constructor/program1.ts"
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/krunal45/TypeScript_Basics/issues"
+  },
+  "homepage": "https://github.com/krunal45/TypeScript_Basics#readme",
+  "dependencies": {
+    "@aws-sdk/client-cloudwatch-logs": "^3.864.0",
+    "@aws-sdk/client-cognito-identity-provider": "^3.848.0",
+    "@aws-sdk/client-dynamodb": "^3.857.0",
+    "@aws-sdk/client-lambda": "^3.851.0",
+    "@aws-sdk/client-secrets-manager": "^3.848.0",
+    "@aws-sdk/credential-providers": "^3.844.0",
+    "@aws-sdk/lib-dynamodb": "^3.864.0",
+    "date-fns": "3.6.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
   },
   "devDependencies": {
-    "ts-node": "^10.9.2",
-    "typescript": "^5.9.2"
-  },
-  "dependencies": {
-    "date-fns": "^4.1.0",
-    "npm": "^11.6.0"
+    "tsx": "^4.20.6"
   }
 }
