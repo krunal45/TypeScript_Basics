@@ -13,8 +13,8 @@ const db = new DynamoDBClient({region:REGION});
 const doc = DynamoDBDocumentClient.from(db);
 
 // 2. Define what to check ? 
-const TableName = 'customers';
-const Key:Record<string,any> = { customer_id: "1056638045"};
+const TableName = 'eod_statement_account_orchestration_status';
+const Key:Record<string,any> = { orchestrationDate: "2025-10-04"};
 
 // 3. Read Item
 const RESPONSE = await doc.send(new GetCommand({

@@ -1,18 +1,20 @@
 {
   "compilerOptions": {
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "module": "es2022",
+    "moduleResolution": "node",
     "allowImportingTsExtensions": true,
     "noEmit": true,
-    "target": "ES6",
+    "target": "es2022",
     "lib": ["ES2022", "DOM"],
     "jsx": "react-jsx",
     "strictNullChecks": true,
     "strictFunctionTypes": true,
     "sourceMap": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
-    // "resolveJsonModule": true
+    "skipLibCheck": true,
+    "moduleDetection": "force",
+    "isolatedModules": true,
+    "resolveJsonModule": true
   },
 
   "ts-node": {

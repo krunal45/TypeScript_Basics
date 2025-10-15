@@ -1,7 +1,7 @@
 // ### Beginner coding question
 // **Create an abstract class `Animal` with an abstract method `makeSound(): void`. Then create a class `Dog` that extends `Animal` 
 // and implements `makeSound` to log "Woof!". Finally, write code to create a `Dog` and call `makeSound()`. Why can’t you create an instance of `Animal` directly?**
-abstract class Animal {
+export abstract class Animal {
     abstract makeSound(): void;
 }
 
